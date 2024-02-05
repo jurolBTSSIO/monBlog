@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header');-%>
+<style>
+    body {
+        background-color: #fdfafb;
+    }
+    img {
+        height: 250px;
+        border-radius: 10px;
+        border: solid 1px #000;
+        box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.5);
+        transition: transform 2s ease;
+    }
+    .white {
+        background-color: #fff;
+    }
+
+    img:hover {
+        transform: rotate(360deg);
+    }
+</style>
+
+<body>
+    <%- include('layouts/navbar');-%>
+    <!-- Page Header -->
+    <header class="masthead">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row border shadow p-5 white">
+                <div class="col-lg-8 col-md-10 p-5 mx-auto">
+                    <div class="post-heading">
+                        <h1><%= blogposts.title %></h1>
+                        <h2 class="subheading"><%- blogposts.body %></h2>
+                        <span class="meta">Posted by
+                            <a href="#"><%= blogposts.userid.username %></a>
+                            on <%= blogposts.datePosted.toLocaleDateString('fr-FR') %>
+                        </span>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="<%= blogposts.image %>" alt="image article blg" />
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Post Content -->
+
+
+    <%- include('layouts/scripts');-%>
+</body>
+
+</html>

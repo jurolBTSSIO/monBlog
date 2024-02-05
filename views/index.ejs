@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layouts/header');-%>
+<style>
+    body {
+        background-color: #fdfafb;
+    }
+
+    img {
+        height: 250px;
+        border-radius: 10px;
+        border: solid 1px #000;
+        box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.5);
+        transition: transform 2s ease;
+    }
+
+    .white {
+        background-color: #fff;
+    }
+
+    img:hover {
+        transform: rotate(360deg);
+    }
+
+    .post-title {
+        color: #000;
+    }
+
+    .post-subtitle {
+        color: #000;
+    }
+
+    a {
+        text-decoration: none;
+    }
+</style>
+
+<body>
+    <!-- Navigation -->
+    <%- include('layouts/navbar');-%>
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/home-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading mb-4">
+                        <h1>Mon Blog</h1>
+                        <span class="subheading">A Blog Theme by Julien Rolland</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto white p-5 border shadow mb-5">
+                <% for (var i = 0; i < blogposts.length; i++){ %>
+                <div class="post-preview">
+                    <a href="/post/<%= blogposts[i]._id%>">
+                        <h2 class="post-title">
+                            <%= blogposts[i].title %>
+                        </h2>
+                        <h3 class="post-subtitle">
+                            <%- blogposts[i].body %>
+                        </h3>
+                    </a>
+                </div>
+                <hr>
+                <%}%>
+<!-- Pager -->
+<div class="clearfix">
+    <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+</div>
+</div>
+</div>
+<%- include('layouts/footer');-%>
+                <%- include('layouts/scripts');-%>
+</body>
+
+</html>
